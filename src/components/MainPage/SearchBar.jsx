@@ -2,7 +2,7 @@ import React from "react";
 import SearchMagnifier from "../../assets/images/mainSearchMagnifier.png";
 
 export default function SearchBar({ placeholder }) {
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
   };
   return (
@@ -13,7 +13,11 @@ export default function SearchBar({ placeholder }) {
         placeholder={placeholder}
       />
       <button className="bg-[#ff681b] w-[65px] h-14 rounded-r-lg flex items-center justify-center">
-        <img src={SearchMagnifier} className="flex-shrink-0 h-8 " />
+        <img
+          src={SearchMagnifier}
+          className="flex-shrink-0 h-8 "
+          alt="SearchMagnifier"
+        />
       </button>
     </form>
   );

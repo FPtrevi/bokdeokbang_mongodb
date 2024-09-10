@@ -9,7 +9,7 @@ export default function OneonOneAsk() {
     images: [],
   });
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
 
@@ -19,7 +19,7 @@ export default function OneonOneAsk() {
     });
   };
 
-  const handleImageUpload = e => {
+  const handleImageUpload = (e) => {
     const files = e.target.files;
     const maxFileSize = 10 * 1024 * 1024; // 10MB
     const maxImageCount = 3;
@@ -50,7 +50,7 @@ export default function OneonOneAsk() {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // 이제 formData 객체를 사용하여 원하는 방식으로 데이터를 처리하실 수 있습니다.
@@ -148,7 +148,7 @@ export default function OneonOneAsk() {
                       <div key={index} className="w-32 h-32 ml-4 border">
                         <img
                           src={URL.createObjectURL(image)}
-                          alt={`Uploaded Image ${index + 1}`}
+                          alt={`Uploaded Images ${index + 1}`}
                           className="w-32 h-32 object-cover rounded"
                         />
                       </div>

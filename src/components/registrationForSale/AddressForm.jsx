@@ -28,10 +28,10 @@ export default function AddressForm({ form, setForm, handleChange }) {
               const { x, y } = result[0];
               setForm({
                 ...form,
-                ["zip_code"]: data.zonecode,
-                ["address1"]: data.roadAddress,
-                ["lat"]: x,
-                ["lng"]: y,
+                zip_code: data.zonecode,
+                address1: data.roadAddress,
+                lat: x,
+                lng: y,
               });
             } else {
               console.error("주소를 좌표로 변환할 수 없습니다.");

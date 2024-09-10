@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
-import { Map, MapMarker, MarkerClusterer, useMap } from "react-kakao-maps-sdk";
+import { Map, MapMarker, MarkerClusterer } from "react-kakao-maps-sdk";
 
 import { Link } from "react-router-dom";
 
@@ -118,7 +118,7 @@ function getFilteredItems(data, info) {
 }
 
 const EventMarkerContainer = ({ position, clickable, onClick }) => {
-  const map = useMap();
+  // const map = useMap();
 
   // const moveMarker = marker => map.panTo(marker.getPosition());
 

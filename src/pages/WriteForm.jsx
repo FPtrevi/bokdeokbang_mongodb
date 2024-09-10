@@ -7,27 +7,27 @@ import AddressForm from "../components/registrationForSale/AddressForm";
 
 export default function WriteForm() {
   const [form, setForm] = useState(FORM_DATA);
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
     if (type === "file") {
       if (files.length > 0) {
-        setForm(prevForm => ({
+        setForm((prevForm) => ({
           ...prevForm,
           [name]: files[0],
         }));
       }
     } else if (type === "checkbox") {
-      setForm(prev => ({
+      setForm((prev) => ({
         ...prev,
         [name]: checked
           ? [...prev[name], value]
-          : prev[name].filter(item => item !== value),
+          : prev[name].filter((item) => item !== value),
       }));
     } else if (name === "size_m2") {
       setForm({
         ...form,
-        ["size_m2"]: value,
-        ["size_p"]: Math.round(value / 3.3),
+        size_m2: value,
+        size_p: Math.round(value / 3.3),
       });
     } else {
       setForm({ ...form, [name]: value });
@@ -38,18 +38,18 @@ export default function WriteForm() {
     setForm({ ...form, [name]: value });
   };
 
-  const handleImageUpload = e => {
+  const handleImageUpload = (e) => {
     const { files } = e.target;
     const newImages = Array.from(files);
 
     // 기존 이미지와 새로운 이미지 합치기
-    setForm(prevForm => ({
+    setForm((prevForm) => ({
       ...prevForm,
       images: [...prevForm.images, ...newImages],
     }));
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form);
   };
