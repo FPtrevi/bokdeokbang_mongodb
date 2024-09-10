@@ -2,11 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import NotFound from "./pages/NotFound";
 import reportWebVitals from "./reportWebVitals";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/mainPage/Home";
-import NewPage from "./pages/page1/NewPage";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import NotFound from "./pages/NotFound";
+import Home from "./pages/MainPage/Home";
+import List from "./pages/List/List";
+import RealEstate from "./pages/RealEstate/RealEstate";
+import SearchHouse from "./pages/SearchHouse/SearchHouse";
+import FrequentlyAskedQuestions from "./pages/Support/FrequentlyAskedQuestions";
+import WriteForm from "./pages/WriteForm";
+import Register from "./pages/Member/Register";
+import Login from "./pages/Member/Login";
+import SupportMain from "./pages/Support/SupportMain";
+import OneonOneAsk from "./pages/Support/OneonOneAsk";
+import Notice from "./pages/Support/Notice/Notice";
+import NoticeDescription from "./pages/Support/Notice/NoticeDescription";
+import SaleDetails from "./pages/List/SaleDetails";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -20,19 +31,24 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      { path: "/pageadd", element: <NewPage /> },
-      // /support의 주소 안에서의 새로운 주소 할당
-      // {
-      //   path: "/support",
-      //   element: <SupportMain />,
-      //   children: [
-      //     { index: true, element: <FrequentlyAskedQuestions /> },
-      //     { path: "inquiry", element: <OneonOneAsk /> },
-      //     { path: "notice", element: <Notice /> },
-      //     { path: "notice/:page", element: <Notice /> },
-      //     { path: "notice/detail/:noticeNo", element: <NoticeDescription /> },
-      //   ],
-      // },
+      { path: "/registration/room", element: <WriteForm /> },
+      { path: "/list", element: <List /> },
+      { path: "/list/details/:id", element: <SaleDetails /> },
+      { path: "/realEstate", element: <RealEstate /> },
+      { path: "/searchHouse", element: <SearchHouse /> },
+      {
+        path: "/support",
+        element: <SupportMain />,
+        children: [
+          { index: true, element: <FrequentlyAskedQuestions /> },
+          { path: "inquiry", element: <OneonOneAsk /> },
+          { path: "notice", element: <Notice /> },
+          { path: "notice/:page", element: <Notice /> },
+          { path: "notice/detail/:noticeNo", element: <NoticeDescription /> },
+        ],
+      },
+      { path: "/member/login", element: <Login /> },
+      { path: "/member/register/:category", element: <Register /> },
     ],
   },
 ]);

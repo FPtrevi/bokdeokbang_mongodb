@@ -8,13 +8,13 @@ const queryclient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
       <QueryClientProvider client={queryclient}>
         <Outlet />
       </QueryClientProvider>
       <Footer />
-    </div>
+    </>
   );
 }
 
