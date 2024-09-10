@@ -6,18 +6,14 @@ import { useParams, useNavigate } from "react-router";
 export default function NoticeDescription() {
   const { noticeNo } = useParams();
   const navigate = useNavigate();
-  const { data } = useQuery(
-    {
-      queryKey: ["NoticeData"],
-      queryFn: async () => {
-        const response = await axios.get("/Mock/Notice.json");
-        return response.data;
-      },
+  const { data } = useQuery({
+    queryKey: ["NoticeData"],
+    queryFn: async () => {
+      const response = await axios.get("/Mock/Notice.json");
+      return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 5,
-    }
-  );
+    staleTime: 1000 * 60 * 5,
+  });
 
   if (!data) {
     // 데이터가 없을 경우 로딩 또는 에러 처리

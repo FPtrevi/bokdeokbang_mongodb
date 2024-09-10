@@ -5,9 +5,9 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 export default function Create() {
   // 새로운 사용자 정보를 관리하는 상태
   const [newUser, setNewUser] = useState({
-    name: "",
-    quantity: "",
-    price: "",
+    type: "",
+    title: "",
+    content: "",
   });
 
   const queryClient = useQueryClient(); // 쿼리 클라이언트를 사용해 캐시된 데이터 관리

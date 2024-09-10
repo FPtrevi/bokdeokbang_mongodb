@@ -11,6 +11,7 @@ const midWare = require(`midware.js 경로`);
  *****************************************/
 const readData = require("../src/api/readData");
 const createData = require("../src/api/create");
+const createCsData = require("../src/api/createCs");
 const readOneData = require("../src/api/readOneData");
 const updateData = require("../src/api/update");
 const deleteData = require("../src/api/delete");
@@ -28,6 +29,18 @@ exports.createData = async (req, res) => {
   const data = req.body;
   try {
     const result = await createData(data);
+    if (result.success) {
+      res.json(data);
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+exports.createCsData = async (req, res) => {
+  const data = req.body;
+  try {
+    const result = await createCsData(data);
     if (result.success) {
       res.json(data);
     }

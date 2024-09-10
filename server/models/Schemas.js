@@ -78,7 +78,7 @@ const inquirySchema = new mongoose.Schema({
 module.exports = mongoose.model("Inquiry", inquirySchema);
 
 const csSchema = new mongoose.Schema({
-  member: { type: mongoose.Schema.Types.ObjectId, ref: "Member" },
+  type: { type: String },
   title: { type: String, maxlength: 100 },
   content: { type: String, maxlength: 2000 },
   update_date: { type: Date },

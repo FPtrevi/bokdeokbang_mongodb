@@ -18,6 +18,7 @@ import OneonOneAsk from "./pages/Support/OneonOneAsk";
 import Notice from "./pages/Support/Notice/Notice";
 import NoticeDescription from "./pages/Support/Notice/NoticeDescription";
 import SaleDetails from "./pages/List/SaleDetails";
+import AddCs from "./components/mongodbUse/AddCs";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
       { path: "/list/details/:id", element: <SaleDetails /> },
       { path: "/realEstate", element: <RealEstate /> },
       { path: "/searchHouse", element: <SearchHouse /> },
+      { path: "/addcs", element: <AddCs /> },
       {
         path: "/support",
         element: <SupportMain />,

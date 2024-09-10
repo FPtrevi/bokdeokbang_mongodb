@@ -29,6 +29,8 @@ router.get("/user/:quantity", getUserByQuantity);
 
 router.post("/postData", midWare.createData);
 
+router.post("/cs", midWare.createCsData);
+
 router.put("/user/update", updateUserName);
 
 router.delete("/user/delete/:id", deleteUser);
