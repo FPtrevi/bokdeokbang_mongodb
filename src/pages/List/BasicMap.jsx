@@ -1,7 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Map, MapMarker, MarkerClusterer, useMap } from "react-kakao-maps-sdk";
-import { useQuery } from "react-query";
+
 import { Link } from "react-router-dom";
 
 export default function BasicMap() {
@@ -44,7 +45,7 @@ export default function BasicMap() {
   }, [data, info]);
   //==============================================마커
 
-  const handelMarkerClick = item => {
+  const handelMarkerClick = (item) => {
     setFilter([item]);
   };
 
@@ -64,7 +65,7 @@ export default function BasicMap() {
         className="w-[800px] h-[700px] m-4"
         level={3}
         ref={mapRef}
-        onDragEnd={map => getInfo(map)}
+        onDragEnd={(map) => getInfo(map)}
       >
         <MarkerClusterer averageCenter={true}>
           {data &&
@@ -109,7 +110,7 @@ export default function BasicMap() {
 function getFilteredItems(data, info) {
   if (data && data.length > 0) {
     return data.filter(
-      item =>
+      (item) =>
         item.latlng.lat >= info.s &&
         item.latlng.lat <= info.n &&
         item.latlng.lng >= info.w &&

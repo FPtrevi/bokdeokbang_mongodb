@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { ReactComponent as Left } from "../../assets/svg/Left.svg";
 import { ReactComponent as Right } from "../../assets/svg/Right.svg";
@@ -28,7 +28,7 @@ export default function SaleDetails() {
     return <div>로딩 중...</div>;
   }
 
-  const noticeIndex = data.findIndex(item => item.house_no === id);
+  const noticeIndex = data.findIndex((item) => item.house_no === id);
   const filterData = data[noticeIndex];
 
   console.log(filterData);

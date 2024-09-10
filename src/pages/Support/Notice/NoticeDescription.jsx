@@ -1,6 +1,6 @@
 import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useParams, useNavigate } from "react-router";
 
 export default function NoticeDescription() {
@@ -23,7 +23,7 @@ export default function NoticeDescription() {
   }
 
   // 공지사항의 noticeNo에 해당하는 데이터 필터링
-  const noticeIndex = data.findIndex(item => item.noticeNo === noticeNo);
+  const noticeIndex = data.findIndex((item) => item.noticeNo === noticeNo);
 
   if (noticeIndex === -1) {
     // noticeNo에 해당하는 데이터가 없을 경우 처리 (예: 에러 처리 또는 리디렉션)

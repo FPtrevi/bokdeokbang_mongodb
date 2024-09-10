@@ -1,13 +1,13 @@
 import axios from "axios";
 import React from "react";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import FrequentlyAskedQuestionItems from "../../components/Support/FrequentlyAskedQuestionItems";
 
 export default function FrequentlyAskedQuestions() {
   const { data: askList } = useQuery(["FrequentlyAskedQuestions"], async () => {
     return axios
       .get("/Mock/FrequentlyAskedQuestions.json")
-      .then(res => res.data.list);
+      .then((res) => res.data.list);
   });
 
   return (

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Notice() {
   const navigate = useNavigate();
@@ -78,7 +78,7 @@ export default function Notice() {
             </div>
           </div>
           {filteredData &&
-            filteredData.map(item => (
+            filteredData.map((item) => (
               <div
                 key={item.noticeNo}
                 className="flex flex-col self-stretch border-b border-[#eee] cursor-pointer"
