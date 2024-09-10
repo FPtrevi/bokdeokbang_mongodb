@@ -6,18 +6,14 @@ import { Map, MapMarker, MarkerClusterer, useMap } from "react-kakao-maps-sdk";
 import { Link } from "react-router-dom";
 
 export default function BasicMap() {
-  const { isLoading, data } = useQuery(
-    {
-      queryKey: ["buildingList"],
-      queryFn: async () => {
-        const response = await axios.get("/Mock/ListofSale.json");
-        return response.data;
-      },
+  const { isLoading, data } = useQuery({
+    queryKey: ["buildingList"],
+    queryFn: async () => {
+      const response = await axios.get("/Mock/ListofSale.json");
+      return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 5,
-    }
-  );
+    staleTime: 1000 * 60 * 5,
+  });
 
   //==============================================맵
   const mapRef = useRef(null);

@@ -7,18 +7,14 @@ export default function Notice() {
   const { page } = useParams(); // 동적 페이지 번호 파라미터
   const itemsPerPage = 10;
 
-  const { data: allData } = useQuery(
-    {
-      queryKey: ["NoticeData"],
-      queryFn: async () => {
-        const response = await axios.get("/Mock/Notice.json");
-        return response.data;
-      },
+  const { data: allData } = useQuery({
+    queryKey: ["NoticeData"],
+    queryFn: async () => {
+      const response = await axios.get("/Mock/Notice.json");
+      return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 5,
-    }
-  );
+    staleTime: 1000 * 60 * 5,
+  });
 
   const currentPage = page ? parseInt(page) : 1; // 페이지 파라미터가 없을 때 기본 페이지를 1로 설정
 
