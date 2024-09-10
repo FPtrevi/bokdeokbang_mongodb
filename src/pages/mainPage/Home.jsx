@@ -33,11 +33,11 @@ export default function Home() {
   ];
 
   const [category, setCategory] = useState("apartment");
-  const filterCategory = categoryIndex.find(item => item.key === category);
+  const filterCategory = categoryIndex.find((item) => item.key === category);
 
   const trackRef = useRef(null);
 
-  const handleButtonClick = e => {
+  const handleButtonClick = (e) => {
     // category 상태 변경
     setCategory(e.target.name);
 
@@ -64,7 +64,7 @@ export default function Home() {
           <div className="flex flex-col">
             <div className="flex flex-col h-16 pb-7">
               <div className="flex h-10 rounded-lg bg-[#03142d]/[0.85] relative">
-                {categoryIndex.map(item => (
+                {categoryIndex.map((item) => (
                   <button
                     key={item.key}
                     className={`justify-center items-center flex-grow w-28 h-10 px-2 whitespace-pre z-10 ${

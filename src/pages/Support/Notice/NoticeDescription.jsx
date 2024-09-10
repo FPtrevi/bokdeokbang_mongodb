@@ -7,10 +7,12 @@ export default function NoticeDescription() {
   const { noticeNo } = useParams();
   const navigate = useNavigate();
   const { data } = useQuery(
-    ["NoticeData"],
-    async () => {
-      const response = await axios.get("/Mock/Notice.json");
-      return response.data;
+    {
+      queryKey: ["NoticeData"],
+      queryFn: async () => {
+        const response = await axios.get("/Mock/Notice.json");
+        return response.data;
+      },
     },
     {
       staleTime: 1000 * 60 * 5,

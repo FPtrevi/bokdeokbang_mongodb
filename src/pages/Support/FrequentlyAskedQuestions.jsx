@@ -4,10 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 import FrequentlyAskedQuestionItems from "../../components/Support/FrequentlyAskedQuestionItems";
 
 export default function FrequentlyAskedQuestions() {
-  const { data: askList } = useQuery(["FrequentlyAskedQuestions"], async () => {
-    return axios
-      .get("/Mock/FrequentlyAskedQuestions.json")
-      .then((res) => res.data.list);
+  const { data: askList } = useQuery({
+    queryKey: ["FrequentlyAskedQuestions"],
+    queryFn: async () => {
+      return axios
+        .get("/Mock/FrequentlyAskedQuestions.json")
+        .then((res) => res.data.list);
+    },
   });
 
   return (

@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 
 export default function BasicMap() {
   const { isLoading, data } = useQuery(
-    ["buildingList"],
-    async () => {
-      const response = await axios.get("/Mock/ListofSale.json");
-      return response.data;
+    {
+      queryKey: ["buildingList"],
+      queryFn: async () => {
+        const response = await axios.get("/Mock/ListofSale.json");
+        return response.data;
+      },
     },
     {
       staleTime: 1000 * 60 * 5,
