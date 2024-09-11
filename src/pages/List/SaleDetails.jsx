@@ -12,18 +12,14 @@ import { ReactComponent as Bill } from "../../assets/svg/Bill.svg";
 export default function SaleDetails() {
   const { id } = useParams();
 
-  const { isLoading, data } = useQuery(
-    {
-      queryKey: ["buildingList"],
-      queryFn: async () => {
-        const response = await axios.get("/Mock/ListofSale.json");
-        return response.data;
-      },
+  const { isLoading, data } = useQuery({
+    queryKey: ["buildingList"],
+    queryFn: async () => {
+      const response = await axios.get("/Mock/ListofSale.json");
+      return response.data;
     },
-    {
-      staleTime: 1000 * 60 * 5,
-    }
-  );
+    staleTime: 1000 * 60 * 5,
+  });
 
   if (isLoading) {
     // 데이터가 없을 경우 로딩 또는 에러 처리
