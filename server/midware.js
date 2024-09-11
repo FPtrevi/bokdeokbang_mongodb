@@ -15,6 +15,8 @@ const createCsData = require("../src/api/createCs");
 const readOneData = require("../src/api/readOneData");
 const updateData = require("../src/api/update");
 const deleteData = require("../src/api/delete");
+const getQna = require("../src/api/support/getQna");
+const getNotice = require("../src/api/support/getNotice");
 
 exports.readData = async (req, res) => {
   try {
@@ -81,5 +83,23 @@ exports.deleteUser = async (req, res) => {
     res.json({ message: "User deleted successfully" });
   } catch (error) {
     res.status(500).json({ message: "Server error" });
+  }
+};
+
+exports.getFQnA = async (req, res) => {
+  try {
+    const data = await getQna(); // 데이터 가져오기
+    res.json(data); // JSON 응답으로 반환
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+exports.getNotice = async (req, res) => {
+  try {
+    const data = await getNotice(); // 데이터 가져오기
+    res.json(data); // JSON 응답으로 반환
+  } catch (error) {
+    res.status(500).json({ error: "Internal Server Error" });
   }
 };

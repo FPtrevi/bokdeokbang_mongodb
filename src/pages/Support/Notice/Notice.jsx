@@ -10,8 +10,13 @@ export default function Notice() {
   const { data: allData } = useQuery({
     queryKey: ["NoticeData"],
     queryFn: async () => {
-      const response = await axios.get("/Mock/Notice.json");
-      return response.data;
+      const response = await axios.get("http://localhost:5000/api/getnotice");
+      return response.data.map((item) => {
+        return {
+          ...item,
+          update_date: new Date(item.update_date).toLocaleDateString("en-CA"), // update_date를 "YYYY-MM-DD"로 변환
+        };
+      });
     },
     staleTime: 1000 * 60 * 5,
   });
@@ -78,10 +83,10 @@ export default function Notice() {
           {filteredData &&
             filteredData.map((item) => (
               <div
-                key={item.noticeNo}
+                key={item._id}
                 className="flex flex-col self-stretch border-b border-[#eee] cursor-pointer"
                 onClick={() => {
-                  navigate(`/support/notice/detail/${item.noticeNo}`);
+                  navigate(`/support/notice/detail/${item._id}`);
                 }}
               >
                 <div className="flex items-center self-stretch h-14 pl-7">
@@ -89,7 +94,7 @@ export default function Notice() {
                     <p className="text-sm text-left text-black">{item.title}</p>
                   </div>
                   <div className="flex flex-col items-center w-1/6">
-                    <p className="text-sm text-black">{item.date}</p>
+                    <p className="text-sm text-black">{item.update_date}</p>
                   </div>
                 </div>
               </div>

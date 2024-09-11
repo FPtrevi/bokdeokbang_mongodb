@@ -31,6 +31,10 @@ router.post("/postData", midWare.createData);
 
 router.post("/cs", midWare.createCsData);
 
+router.get("/getfqna", midWare.getFQnA);
+
+router.get("/getnotice", midWare.getNotice);
+
 router.put("/user/update", updateUserName);
 
 router.delete("/user/delete/:id", deleteUser);

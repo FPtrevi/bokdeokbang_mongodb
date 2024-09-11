@@ -8,8 +8,8 @@ export default function FrequentlyAskedQuestions() {
     queryKey: ["FrequentlyAskedQuestions"],
     queryFn: async () => {
       return axios
-        .get("/Mock/FrequentlyAskedQuestions.json")
-        .then((res) => res.data.list);
+        .get("http://localhost:5000/api/getfqna")
+        .then((res) => res.data);
     },
   });
 
@@ -37,7 +37,7 @@ export default function FrequentlyAskedQuestions() {
               <FrequentlyAskedQuestionItems
                 key={index}
                 title={list.title}
-                description={list.description}
+                description={list.content}
               />
             ))}
         </div>
