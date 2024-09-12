@@ -19,6 +19,7 @@ import Notice from "./pages/Support/Notice/Notice";
 import NoticeDescription from "./pages/Support/Notice/NoticeDescription";
 import SaleDetails from "./pages/List/SaleDetails";
 import AddCs from "./components/mongodbUse/AddCs";
+import SignUpForm from "./pages/Member/SignUpForm";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -50,6 +51,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: "/member/login", element: <Login /> },
+      { path: "/member/signin", element: <SignUpForm /> },
       { path: "/member/register/:category", element: <Register /> },
     ],
   },
