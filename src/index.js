@@ -19,6 +19,8 @@ import Notice from "./pages/Support/Notice/Notice";
 import NoticeDescription from "./pages/Support/Notice/NoticeDescription";
 import SaleDetails from "./pages/List/SaleDetails";
 import AddCs from "./components/mongodbUse/AddCs";
+import ApartmentRentData from "./pages/Test/ApartmentRentData";
+import TermsAgreement from "./pages/Member/TermsAgreement";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -50,7 +52,9 @@ const router = createBrowserRouter([
         ],
       },
       { path: "/member/login", element: <Login /> },
+      { path: "/member/termsagreement", element: <TermsAgreement /> },
       { path: "/member/register/:category", element: <Register /> },
+      { path: "/testdd", element: <ApartmentRentData /> },
     ],
   },
 ]);
